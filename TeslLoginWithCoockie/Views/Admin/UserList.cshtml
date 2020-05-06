@@ -1,0 +1,47 @@
+﻿
+<head>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/TableForAdmin.css">
+</head>
+
+
+<a href="javascript:history.go(-1)"><button type="button" class="btn btn-warning">Назад</button></a>
+
+<body>
+
+    
+        <h1> Табилца всех пользователей</h1>
+    
+    <br>
+    <table class="History">
+        <tr>
+            <td>Номер пользователя </td>
+            <td> Имя </td>
+            <td> Фамилия </td>
+            <td> Емейл </td>
+            <td> Дата регистрации </td>
+            <td> Всего куплено топлива </td>
+            <td> Количество бонусов </td>
+        </tr>
+        @foreach (var b in ViewBag.Users)
+        {
+            <tr>
+                <td>@b.Id</td>
+                <td>@b.Name</td>
+                <td>@b.Surname</td>
+                <td>@b.Email</td>
+                <td>@b.RegistrationDate</td>
+                <td>@b.AllLiters</td>
+                <td>@b.Bonus</td>
+            </tr>
+        }
+
+    </table>
+</body>
+
+
+
+
+
+

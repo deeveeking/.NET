@@ -1,0 +1,46 @@
+﻿@model TeslLoginWithCoockie.Models.Fuel
+
+@{
+    ViewData["Title"] = "Buy95";
+}
+
+<link rel="stylesheet" href="~/css/Buy.css">
+
+<main>
+
+    <section class="Buy">
+        <div class="buyer">
+            <div>
+                <h3> Заполните форму для покупки 95-го бензина</h3>
+            </div>
+            <div class="form-popup">
+                <center>
+                    <form asp-action="Buy" asp-controller="Buy" asp-route-id="1" class="form-container">
+                        @*<label>Введите фамилию</label>
+                            <input type="text" placeholder="Иванов" required>
+                            <label>Введите имя</label>
+                            <input type="text" placeholder="Иван" required>*@
+                        <label asp-for="Liters">Количество литров</label>
+                        <input type="number" onchange="sum(this)" id="liters" placeholder="20,10..." asp-for="Liters" required>
+                        <label> Введите номер автомобиля</label>
+                        <input type="text" placeholder="AO 0000 AO" required>
+                        <label id="result">К оплате:</label>
+                        <button type="submit" onclick="openForm()" class="btn">Подтвердить покупку</button>
+
+                    </form>
+                </center>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    function sum(o) {
+
+        var sum = 27.1 * o.value;
+        document.getElementById("result").innerHTML = "К оплате: " + sum + " грн";
+    }
+
+</script>
+
+

@@ -1,0 +1,95 @@
+﻿@model TeslLoginWithCoockie.Models.User
+@{
+    ViewData["Title"] = @Model.Name;
+}
+<head>
+    <link rel="stylesheet" href="~/css/Profile.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/MainPage.css">
+
+
+</head>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <a asp-action="Index">
+                <img src="~/img/Logo.jpg" alt="logo">
+            </a>
+        </div>
+
+        <nav role="navigation">
+            <ul class="mainmenu">
+                <li><a asp-action="Stocks">Акции</a></li>
+                <li><a asp-action="Vacancies">Вакансии</a></li>
+                <li><a asp-action="Contacts">Контакты</a></li>
+                <li><a asp-action="AboutUs">О Нас</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (@User.Identity.Name == "admin@mail.ru")
+                    {
+                        <li><a asp-action="ProfileAdmin" asp-controller="Admin">@User.Identity.Name</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-action="Profile" asp-controller="Account">@User.Identity.Name</a></li>
+                    }
+
+                    <li><a asp-action="LogOut" asp-controller=Account>Выход</a></li>
+                }
+                else
+                {
+                    <li><a asp-action="Login" asp-controller="Account">Вход</a></li>
+                }
+
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+<div class="container ">
+    <div class="row">
+        <div class="col-lg-3 col-md-3" id="leftSide" style="border-radius: 10px 0 0 10px;">
+            <img src="~/img/profileavat.jpg" id="sizePht" />
+            <div>
+                <div class="form-group row">
+                    <p style="padding-left:40px;"><h3 id="otstupOtCray">@Model.Name @Model.Surname</h3></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-5" id="centerSide">
+            <h2 style=" color:#696969;">Информация</h2>
+            <hr />
+            <div class="row">
+                <div class="form-group" id="Raspolog">
+                    <h6>Email</h6>
+                    @Model.Email
+                </div>
+                <div class="form-group" id="Raspolog1">
+                    <h6>Всего куплено литров топлива</h6>
+                    @Model.AllLiters
+                </div>
+            </div>
+            <div class="row" id="razriv">
+                <div class="form-group" id="Raspolog">
+                    <h6>Время регистрации</h6>
+                    @Model.RegistrationDate
+                </div>
+                <div class="form-group" id="Raspolog2">
+                    <h6>Бонусов</h6>
+                    @Model.Bonus
+                </div>
+            </div>
+            <h2 style=" color:#696969;">Возможности</h2>
+            <hr />
+            <div class="but">
+                <a asp-action="UserList" asp-controller="Admin"><button type="button" class="btn btn-success">Список пользователей</button></a>
+                <a asp-action="PurchaseList" asp-controller="Admin"><button type="button" class="btn btn-warning">Просмотр всех покупок</button></a>
+                <a asp-action="ZakazList" asp-controller="Admin"><button type="button" class="btn btn-danger">История поставок</button></a>
+                <a asp-action="FuelList" asp-controller="Admin"><button type="button" class="btn btn-danger">Заказать поставку</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+

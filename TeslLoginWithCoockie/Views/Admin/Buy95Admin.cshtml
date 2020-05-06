@@ -1,0 +1,49 @@
+﻿@model TeslLoginWithCoockie.Models.Zakaz
+@{
+    ViewData["Title"] = "Buy95Admin";
+}
+
+<h1>Buy95Admin</h1>
+
+
+<body>
+
+    <table class="History">
+        <tr>
+            <td>Номер компании</td>
+            <td> Имя компании </td>
+            <td> Номер топлива </td>
+            <td> Имя топлива </td>
+            <td>Сколько нужно купить</td>
+            <td> Цена за литр</td>
+            <td>К оплате</td>
+        </tr>
+        @foreach (var b in ViewBag.Suppliers)
+        {
+            <tr>
+                <td>@b.Id</td>
+                <td>@b.CompanyName</td>
+                <td>@b.FuelId</td>
+                <td>@b.FuelName</td>
+                <td><input type="number" id="liters" onchange="sum(this)" required asp-for="Liters"></td>
+                <td id="price">@b.Price</td>
+                <td><label id="result"></label></td>
+                <td><a asp-action="ConfrimBuy" asp-controller="Admin" asp-route-id="@b.Id" method="post" asp-route-fuelName="@b.FuelName" asp-route-price="@b.Price"><button type="button" class="btn btn-success">Заказать топливо</button></a></td>
+            </tr>
+        }
+
+    </table>
+
+</body>
+
+
+<script>
+
+    function sum(o) {
+
+        var val = document.getElementById("price").text;
+        var sum = val * o.value;
+        document.getElementById("result").innerHTML = "К оплате: " + sum + " грн";
+    }
+
+</script>

@@ -1,0 +1,34 @@
+﻿@model TeslLoginWithCoockie.ViewModels.LoginModel
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Вход</title>
+    <link rel="stylesheet" href="~/css/RegAndLogin.css">
+</head>
+
+
+
+    <div id="form">
+
+        <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+
+                <p>         
+                    <input type="text" placeholder="Email" asp-for="Email" required />
+                </p>
+                <p>        
+                    <input type="password" placeholder="Password"  asp-for="Password" required />
+                </p>
+
+                <p>
+                    <input type="submit" value="ВОЙТИ" />
+                </p>
+            
+        </form>
+
+        <p>Нет аккаунта? &nbsp;&nbsp;<a asp-action = "Register" asp-controller="Account">Регистрация</a><span class="fontawesome-arrow-right"></span></p>
+
+    </div>
+
+

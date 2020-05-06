@@ -1,0 +1,36 @@
+﻿<head>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/TableForAdmin.css">
+</head>
+
+
+<a href="javascript:history.go(-1)"><button type="button" class="btn btn-warning">Назад</button></a>
+
+<body>
+
+
+    <h1> Табилца топлива</h1>
+
+    <br>
+    <table class="History">
+        <tr>
+            <td>Номер топлипа </td>
+            <td> Имя </td>
+            <td> Литры </td>
+            <td> Цена </td>
+        </tr>
+        @foreach (var b in ViewBag.Fuels)
+        {
+            <tr>
+                <td>@b.Id</td>
+                <td>@b.Name</td>
+                <td>@b.Liters</td>
+                <td>@b.Price</td>
+                <td><a asp-action="BuyFuel" asp-controller="Admin" asp-route-id="@b.Id"><button type="button" class="btn btn-success">Заказать топливо</button></a></td>
+            </tr>
+        }
+
+    </table>
+</body>
+

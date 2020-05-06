@@ -1,0 +1,40 @@
+﻿<head>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/TableForAdmin.css">
+</head>
+
+
+<a href="javascript:history.go(-1)"><button type="button" class="btn btn-warning">Назад</button></a>
+
+<body>
+
+    
+        <h1> Табилца всех покупок</h1>
+    
+    <br>
+    <table class="History" width="1800px">
+        <tr>
+            <td>Номер заказа </td>
+            <td> Номер пользователя </td>
+            <td> Номер топлива </td>
+            <td> Имя топлива </td>
+            <td> Количество </td>
+            <td> Время заказа </td>
+            
+        </tr>
+        @foreach (var b in ViewBag.AdminPurchase)
+        {
+    <tr>
+        <td>@b.Id</td>
+        <td>@b.UserId</td>
+        <td>@b.FuelId</td>
+        <td>@b.FuelName</td>
+        <td>@b.Liters</td>
+        <td>@b.PurchaseTime</td>
+    </tr>
+        }
+
+    </table>
+</body>
+

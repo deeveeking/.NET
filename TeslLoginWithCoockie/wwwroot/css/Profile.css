@@ -1,0 +1,45 @@
+﻿body {
+    
+}
+
+#leftSide {
+    background: #dcb8ea;
+    height: 600px;
+    top: 20px;
+    
+}
+
+#sizePht {
+    padding-left: 20px;
+    padding-top: 30px;
+    width: 250px;
+    height: 200px;
+}
+
+#otstupOtCray {
+
+    padding-left:90px;
+    padding-top: 15px;
+    color: white;
+}
+
+#centerSide {
+    background: white;
+    height: 1000px;
+    top: 20px;
+}
+#Raspolog {
+    padding-left: 16px;
+}
+
+#Raspolog1 {
+    padding-left: 76px;
+}
+
+#Raspolog2 {
+    padding-left: 46px;
+}
+#razriv {
+    padding-top: 30px;
+}
+
